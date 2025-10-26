@@ -1,10 +1,10 @@
-# 🍽️ TAEatz / Thuisbezorgd V2
+# 🍽️ Eatnzo (TAEatz / Thuisbezorgd V2)
 
 > Modern food delivery web app built with Next.js + NestJS
 
-## 🎯 What is TAEatz?
+## 🎯 What is Eatnzo?
 
-TAEatz is a **full-stack web application** for food delivery, similar to Thuisbezorgd and Uber Eats. Unlike a static website, it's a dynamic web app that enables users to log in, place orders, track deliveries in real-time, and interact with the system.
+Eatnzo is a **full-stack web application** for food delivery, similar to Thuisbezorgd and Uber Eats. Unlike a static website, it's a dynamic web app that enables users to log in, place orders, track deliveries in real-time, and interact with the system.
 
 ### 🌐 Web App vs Website
 
@@ -14,7 +14,7 @@ TAEatz is a **full-stack web application** for food delivery, similar to Thuisbe
 | Technology | Static HTML/CSS | Next.js (React) + NestJS |
 | Data | None or minimal | Real-time PostgreSQL database |
 | Users | Visitors | Logged-in customers, restaurants, admins |
-| Example | Restaurant promo site | TAEatz, Thuisbezorgd, Uber Eats |
+| Example | Restaurant promo site | Eatnzo, Thuisbezorgd, Uber Eats |
 
 ## 🏗️ Architecture
 
@@ -219,4 +219,3 @@ Built with:
 
 **Version**: 2.0.0  
 **Status**: Development 🚧
-
