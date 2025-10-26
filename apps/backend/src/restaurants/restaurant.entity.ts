@@ -1,5 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
 import { User } from '../users/user.entity';
+import { MenuItem } from '../menu/menu.entity';
+import { Order } from '../orders/order.entity';
 
 export enum CuisineType {
   ITALIAN = 'italian',
@@ -57,6 +59,12 @@ export class Restaurant {
   @ManyToOne(() => User, { nullable: true })
   @JoinColumn({ name: 'ownerId' })
   owner: User;
+
+  @OneToMany(() => MenuItem, (menuItem) => menuItem.restaurant)
+  menuItems: MenuItem[];
+
+  @OneToMany(() => Order, (order) => order.restaurant)
+  orders: Order[];
 
   @CreateDateColumn()
   createdAt: Date;

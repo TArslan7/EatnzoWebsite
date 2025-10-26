@@ -8,6 +8,9 @@ import { AuthModule } from './auth/auth.module';
 import { RestaurantsModule } from './restaurants/restaurants.module';
 import { User } from './users/user.entity';
 import { Restaurant } from './restaurants/restaurant.entity';
+import { MenuItem } from './menu/menu.entity';
+import { Order } from './orders/order.entity';
+import { OrderItem } from './orders/order-item.entity';
 
 @Module({
   imports: [
@@ -22,7 +25,7 @@ import { Restaurant } from './restaurants/restaurant.entity';
       username: process.env.DB_USERNAME || 'postgres',
       password: process.env.DB_PASSWORD || 'postgres',
       database: process.env.DB_NAME || 'eatnzo_db',
-      entities: [User, Restaurant],
+      entities: [User, Restaurant, MenuItem, Order, OrderItem],
       synchronize: process.env.NODE_ENV !== 'production',
       logging: process.env.NODE_ENV === 'development',
     }),
