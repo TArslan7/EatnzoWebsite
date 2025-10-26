@@ -5,7 +5,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { RestaurantsModule } from './restaurants/restaurants.module';
 import { User } from './users/user.entity';
+import { Restaurant } from './restaurants/restaurant.entity';
 
 @Module({
   imports: [
@@ -20,12 +22,13 @@ import { User } from './users/user.entity';
       username: process.env.DB_USERNAME || 'postgres',
       password: process.env.DB_PASSWORD || 'postgres',
       database: process.env.DB_NAME || 'eatnzo_db',
-      entities: [User],
+      entities: [User, Restaurant],
       synchronize: process.env.NODE_ENV !== 'production',
       logging: process.env.NODE_ENV === 'development',
     }),
     UsersModule,
     AuthModule,
+    RestaurantsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
