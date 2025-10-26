@@ -59,27 +59,41 @@ export default function Home() {
 
           {isAuthenticated ? (
             <div className="text-center mb-8">
-              <p className="text-lg text-gray-700">
+              <p className="text-lg text-gray-700 mb-4">
                 You're logged in as <span className="font-semibold">{user?.name}</span>
               </p>
+              <Link
+                href="/restaurants"
+                className="inline-block px-6 py-3 text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition"
+              >
+                Browse Restaurants
+              </Link>
             </div>
           ) : (
             <div className="text-center mb-8">
               <p className="text-lg text-gray-700 mb-4">Get started by creating an account</p>
-              <Link
-                href="/register"
-                className="inline-block px-6 py-3 text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition"
-              >
-                Create Account
-              </Link>
+              <div className="space-x-4">
+                <Link
+                  href="/register"
+                  className="inline-block px-6 py-3 text-white bg-primary-600 rounded-lg transition mr-2"
+                >
+                  Create Account
+                </Link>
+                <Link
+                  href="/restaurants"
+                  className="inline-block px-6 py-3 border-2 border-primary-600 text-primary-600 rounded-lg hover:bg-primary-50 transition"
+                >
+                  Browse Restaurants
+                </Link>
+              </div>
             </div>
           )}
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="border border-gray-300 rounded-lg p-6 bg-white shadow-sm hover:shadow-md transition-shadow">
+            <Link href="/restaurants" className="border border-gray-300 rounded-lg p-6 bg-white shadow-sm hover:shadow-md transition-shadow block">
               <h2 className="text-xl font-semibold mb-2">🍽️ Order Food</h2>
               <p className="text-gray-600">Browse from thousands of restaurants near you</p>
-            </div>
+            </Link>
             <div className="border border-gray-300 rounded-lg p-6 bg-white shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-xl font-semibold mb-2">🚀 Fast Delivery</h2>
               <p className="text-gray-600">Track your orders in real-time and get quick deliveries</p>
