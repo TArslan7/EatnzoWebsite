@@ -41,7 +41,7 @@ This is a **monorepo** containing:
 
 - Node.js >= 18.0.0
 - npm >= 9.0.0
-- Docker & Docker Compose (for PostgreSQL)
+- PostgreSQL 15 (via Docker or Homebrew)
 
 ### Installation
 
@@ -56,9 +56,28 @@ This is a **monorepo** containing:
    npm install
    ```
 
-3. **Start PostgreSQL database**
+3. **Set up PostgreSQL Database**
+
+   **Option A: Using Docker (Recommended)**
    ```bash
+   # Install Docker Desktop from https://www.docker.com/products/docker-desktop
    docker-compose up -d
+   ```
+
+   **Option B: Using Homebrew (macOS)**
+   ```bash
+   # Install PostgreSQL
+   brew install postgresql@15
+   
+   # Add to PATH
+   echo 'export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"' >> ~/.zshrc
+   source ~/.zshrc
+   
+   # Start PostgreSQL service
+   brew services start postgresql@15
+   
+   # Create database
+   createdb eatnzo_db
    ```
 
 4. **Run the development servers**
