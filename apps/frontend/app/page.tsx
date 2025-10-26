@@ -3,7 +3,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-center font-mono text-sm">
         <h1 className="text-4xl font-bold text-center mb-8">
-          Welcome to <span className="text-primary-600">TAEatz</span>
+          Welcome to <span className="text-primary-600">Eatnzo</span>
         </h1>
         <p className="text-center text-gray-600 mb-12">
           Modern food delivery web app built with Next.js + NestJS

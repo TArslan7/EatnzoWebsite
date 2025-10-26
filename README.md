@@ -1,4 +1,4 @@
-# 🍽️ Eatnzo (TAEatz / Thuisbezorgd V2)
+# 🍽️ Eatnzo
 
 > Modern food delivery web app built with Next.js + NestJS
 
@@ -98,7 +98,7 @@ This is a **monorepo** containing:
 ## 📁 Project Structure
 
 ```
-eatnzo-taeatz/
+eatnzo/
 ├── apps/
 │   ├── frontend/          # Next.js frontend application
 │   │   ├── app/           # Next.js 14 app router
