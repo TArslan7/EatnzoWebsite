@@ -32,6 +32,15 @@ export class User {
   @Column({ default: true })
   isActive: boolean;
 
+  @Column({ default: false })
+  isEmailVerified: boolean;
+
+  @Column({ nullable: true })
+  emailVerificationToken: string;
+
+  @Column({ type: 'timestamp', nullable: true })
+  verificationTokenExpiry: Date;
+
   @OneToMany(() => Restaurant, (restaurant) => restaurant.owner)
   restaurants: Restaurant[];
 

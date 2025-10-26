@@ -41,5 +41,26 @@ export class UsersService {
   async findById(id: string): Promise<User | undefined> {
     return await this.usersRepository.findOne({ where: { id } });
   }
+
+  async findByVerificationToken(token: string): Promise<User | undefined> {
+    return await this.usersRepository.findOne({
+      where: { emailVerificationToken: token },
+    });
+  }
+
+  async updateVerificationToken(id: string, token: string, expiry: Date): Promise<void> {
+    await this.usersRepository.update(id, {
+      emailVerificationToken: token,
+      verificationTokenExpiry: expiry,
+    });
+  }
+
+  async verifyEmail(id: string): Promise<void> {
+    await this.usersRepository.update(id, {
+      isEmailVerified: true,
+      emailVerificationToken: null,
+      verificationTokenExpiry: null,
+    });
+  }
 }
 
