@@ -27,7 +27,9 @@ export default function VerifyEmailPage() {
     }
 
     try {
-      const response = await axios.get(`${API_URL}/auth/verify-email?token=${token}`);
+      const response = await axios.get(`${API_URL}/auth/verify-email`, {
+        params: { token }
+      });
       setStatus('success');
       setMessage(response.data.message || 'Email verified successfully!');
       
@@ -36,6 +38,7 @@ export default function VerifyEmailPage() {
         router.push('/login?verified=true');
       }, 3000);
     } catch (error: any) {
+      console.error('Verification error:', error);
       setStatus('error');
       setMessage(error.response?.data?.message || 'Verification failed. Please try again.');
     }
