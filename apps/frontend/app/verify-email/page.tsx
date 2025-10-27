@@ -16,20 +16,21 @@ export default function VerifyEmailPage() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    verifyEmail();
-  }, []);
-
-  const verifyEmail = async () => {
-    if (!token) {
+    if (token) {
+      verifyEmail(token);
+    } else {
       setStatus('error');
-      setMessage('No verification token provided');
-      return;
+      setMessage('No verification token provided in URL');
     }
+  }, [token]);
 
+  const verifyEmail = async (verifyToken: string) => {
     try {
+      console.log('Verifying with token:', verifyToken);
       const response = await axios.get(`${API_URL}/auth/verify-email`, {
-        params: { token }
+        params: { token: verifyToken }
       });
+      console.log('Verification response:', response.data);
       setStatus('success');
       setMessage(response.data.message || 'Email verified successfully!');
       
