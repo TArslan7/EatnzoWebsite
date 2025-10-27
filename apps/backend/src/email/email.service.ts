@@ -23,6 +23,18 @@ export class EmailService {
   async sendVerificationEmail(email: string, token: string, name: string) {
     const verificationUrl = `${process.env.FRONTEND_URL || 'http://localhost:3000'}/verify-email?token=${token}`;
 
+    // DEVELOPMENT MODE: Log to console instead of sending real email
+    if (process.env.NODE_ENV === 'development' || !process.env.SMTP_USER || process.env.SMTP_USER === 'your-mailtrap-username') {
+      console.log('\n📧 ===== VERIFICATION EMAIL (DEVELOPMENT MODE) =====');
+      console.log(`To: ${email}`);
+      console.log(`Subject: Verify Your Eatnzo Account`);
+      console.log(`\nVerification Link:`);
+      console.log(verificationUrl);
+      console.log(`\nCopy this link and paste it in your browser to verify!`);
+      console.log('==================================================\n');
+      return true;
+    }
+
     const mailOptions = {
       from: process.env.SMTP_FROM || process.env.SMTP_USER,
       to: email,
@@ -90,6 +102,18 @@ export class EmailService {
 
   async sendPasswordResetEmail(email: string, token: string, name: string) {
     const resetUrl = `${process.env.FRONTEND_URL || 'http://localhost:3000'}/reset-password?token=${token}`;
+
+    // DEVELOPMENT MODE: Log to console instead of sending real email
+    if (process.env.NODE_ENV === 'development' || !process.env.SMTP_USER || process.env.SMTP_USER === 'your-mailtrap-username') {
+      console.log('\n📧 ===== PASSWORD RESET EMAIL (DEVELOPMENT MODE) =====');
+      console.log(`To: ${email}`);
+      console.log(`Subject: Reset Your Eatnzo Password`);
+      console.log(`\nReset Link:`);
+      console.log(resetUrl);
+      console.log(`\nCopy this link and paste it in your browser to reset!`);
+      console.log('==================================================\n');
+      return true;
+    }
 
     const mailOptions = {
       from: process.env.SMTP_FROM || process.env.SMTP_USER,
